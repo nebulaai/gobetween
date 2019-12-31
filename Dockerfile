@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=scratch
+ARG BASE_IMAGE=alpine
 
 # ---------------------  dev (build) image --------------------- #
 
@@ -26,6 +26,9 @@ RUN make build-static
 # --------------------- final image --------------------- #
 
 FROM $BASE_IMAGE
+
+RUN mkdir -p /etc/gobetween/conf
+COPY ./config/gobetween.toml /etc/gobetween/conf/gobetween.toml
 
 WORKDIR /
 
