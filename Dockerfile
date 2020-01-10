@@ -29,6 +29,7 @@ FROM $BASE_IMAGE
 
 RUN mkdir -p /etc/gobetween/conf
 COPY ./config/gobetween.toml /etc/gobetween/conf/gobetween.toml
+RUN chmod 777 /etc/gobetween/conf
 
 WORKDIR /
 
